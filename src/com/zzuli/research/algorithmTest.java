@@ -8,11 +8,11 @@ import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 
 public class algorithmTest {
-    private static String str = "zcy";
+    private static String str = "哈？";
     public static void main(String args[]){
         try{
             KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
-            keyPairGenerator.initialize(512);
+            keyPairGenerator.initialize(1024);
             KeyPair keyPair = keyPairGenerator.generateKeyPair();
             RSAPrivateKey rsaPrivateKey = (RSAPrivateKey) keyPair.getPrivate();
             RSAPublicKey rsaPublicKey = (RSAPublicKey) keyPair.getPublic();
