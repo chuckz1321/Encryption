@@ -1,15 +1,18 @@
 package com.zzuli.eassy;
 
 import java.math.BigInteger;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
-import java.util.Random;
 
 /**
  * <p>
  * Author: Administrator
  * Date: 2018-1-10 10:25
  * Created with IDEA
+ *
  */
 public class RSAImplement {
     //coming from Euler Theorem
@@ -83,16 +86,18 @@ public class RSAImplement {
 
     public static void main(String[] args) {
         try{
-        String info = "???杨姐upupup";
+        String info = "?是";
+        System.out.println(info.length());
         System.out.println("明文："+info);
-        byte[] infob = info.getBytes("UTF-8");
-        BigInteger infobi = new BigInteger(infob);
+        byte[] infoBytes = info.getBytes("UTF-8");
+        BigInteger infoBigInteger = new BigInteger(infoBytes);
         RSAImplement rsaImplement  = new RSAImplement();
         rsaImplement.generateVariable();
-        BigInteger code = rsaImplement.encrypt(infobi);
+        BigInteger code = rsaImplement.encrypt(infoBigInteger);
         System.out.println("密文："+code);
-        BigInteger back = rsaImplement.encode(code);
-        System.out.println("解析："+new String(back.toByteArray(),"UTF-8"));
+        BigInteger decodeBigInteger = rsaImplement.encode(code);
+        byte[] encodeArray = decodeBigInteger.toByteArray();
+        System.out.println("解析："+ new String(encodeArray,"UTF-8"));
         }catch(Exception e){
             e.printStackTrace();
         }
