@@ -7,6 +7,7 @@ package com.zzuli.eassy;
  * Created with IDEA
  */
 public class ByteHexUtil {
+
     private static char[] hexArray = "0123456789ABCDEF".toCharArray();
 
     public static String Byte2Hex(byte bytes[]){

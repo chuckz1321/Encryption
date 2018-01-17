@@ -83,18 +83,21 @@ public class RSAImplement {
 
     public static void main(String[] args) {
         try{
-        String info = "?是";
-        System.out.println(info.length());
-        System.out.println("明文："+info);
-        byte[] infoBytes = info.getBytes("UTF-8");
-        BigInteger infoBigInteger = new BigInteger(infoBytes);
-        RSAImplement rsaImplement  = new RSAImplement();
-        rsaImplement.generateVariable();
-        BigInteger code = rsaImplement.encrypt(infoBigInteger);
-        System.out.println("密文："+code);
-        BigInteger decodeBigInteger = rsaImplement.encode(code);
-        byte[] encodeArray = decodeBigInteger.toByteArray();
-        System.out.println("解析："+ new String(encodeArray,"UTF-8"));
+            SHAImplement sha = new SHAImplement();
+            RSAImplement rsaImplement  = new RSAImplement();
+            String data = "透你个吗的";
+            System.out.println("原始数据:"+ data);
+            String digest =sha.process(data);
+            System.out.println("摘要："+ digest);
+            //生成私钥密钥
+            rsaImplement.generateVariable();
+            byte[] infoBytes = digest.getBytes("UTF-8");
+            BigInteger infoBigInteger = new BigInteger(infoBytes);
+            BigInteger code = rsaImplement.encrypt(infoBigInteger);
+            System.out.println("密文："+code);
+            BigInteger decodeBigInteger = rsaImplement.encode(code);
+            byte[] encodeArray = decodeBigInteger.toByteArray();
+            System.out.println("解析："+ new String(encodeArray,"UTF-8"));
         }catch(Exception e){
             e.printStackTrace();
         }
