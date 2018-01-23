@@ -147,4 +147,7 @@ public class SHAImplement {
         return this.processBlock(this.fillByte(dataByte));
     }
 
+    public String process(byte[] data){
+        return this.processBlock(this.fillByte(data));
+    }
 }

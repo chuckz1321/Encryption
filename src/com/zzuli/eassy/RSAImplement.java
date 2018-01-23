@@ -85,7 +85,8 @@ public class RSAImplement {
         try{
             SHAImplement sha = new SHAImplement();
             RSAImplement rsaImplement  = new RSAImplement();
-            String data = FileTool.readToString("C:\\Users\\Administrator\\Desktop\\学习十九大-张成远.docx");
+            String data = "";
+            //            String data = FileTool.readToString("C:\\Users\\Administrator\\Desktop\\学习十九大-张成远.docx");
             System.out.println("原始数据:"+ data);
             String digest =sha.process(data);
             System.out.println("摘要："+ digest);
