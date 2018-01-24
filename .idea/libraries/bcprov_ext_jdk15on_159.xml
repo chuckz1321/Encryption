@@ -5,6 +5,8 @@
       <root url="jar://$PROJECT_DIR$/../guava-15.0.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ideaLibSources/guava-15.0-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>
